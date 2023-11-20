@@ -11,7 +11,7 @@ def moveZero(arr):
     return arr
 
 
-arr=[1,2,3,0,2,0,1,1,0,2]
+arr=[1,0,2,3,0,2,0,1,1,0,2]
 MArray=moveZero(arr)
 for i in range(len(arr)):
     print(MArray[i], end= " ")
