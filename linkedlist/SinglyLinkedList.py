@@ -66,6 +66,18 @@ class SLL:
                         temp.next=temp.next.next
                         break
                     temp=temp.next
+    
+    def hasCycle(self):
+        slow=self.head
+        fast=self.head
+        while slow != fast or slow.next==None:
+            if slow is fast:
+                return True
+            slow=slow.next
+            fast=fast.next.next
+
+
+
     def __iter__(self):
         return SLLIterator(self.start)
 class SLLIterator:
@@ -80,17 +92,23 @@ class SLLIterator:
         self.current=self.current.next
         return data
     
+
+
+    
 #driver Code
-mylist=SLL()
-mylist.insert_at_start(20)
-mylist.insert_at_start(10)
-mylist.insert_at_last(30)
-mylist.insert_after(mylist.search(20),25)
-mylist.print_list()
-mylist.delete_item(30)
-print()
+# mylist=SLL()
+# mylist.insert_at_start(20)
+# mylist.insert_at_start(10)
+# mylist.insert_at_last(30)
+# mylist.insert_at_last(40)
+# # mylist.insert_after(10)
+# mylist.insert_at_last(20)
+# # mylist.insert_after(mylist.search(20),25)
+# mylist.print_list()
+# mylist.delete_item(30)
+# print()
 
-for x in mylist:
-    print(x,end=' ')
+# for x in mylist:
+#     print(x,end=' ')
 
-print()
+# print()
