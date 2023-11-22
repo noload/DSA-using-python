@@ -68,13 +68,20 @@ class SLL:
                     temp=temp.next
     
     def hasCycle(self):
-        slow=self.head
-        fast=self.head
+        slow=self.start
+        fast=self.start
         while slow != fast or slow.next==None:
             if slow is fast:
                 return True
             slow=slow.next
             fast=fast.next.next
+    
+    def reverse(self):
+        prev=None
+        current = self.start
+        temp=current.next
+        while temp:
+            
 
 
 
@@ -106,6 +113,7 @@ class SLLIterator:
 # # mylist.insert_after(mylist.search(20),25)
 # mylist.print_list()
 # mylist.delete_item(30)
+# print("has cycle",mylist.hasCycle())
 # print()
 
 # for x in mylist:
