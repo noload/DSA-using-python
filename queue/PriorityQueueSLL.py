@@ -29,7 +29,7 @@ class PriorityQueue:
     
     def pop(self):
         if not self.is_empty():
-            removeData=self.start.data
+            removeData=self.start.item
             self.start=self.start.next
             self.itemCount-=1
             return removeData
@@ -38,3 +38,14 @@ class PriorityQueue:
     
     def size(self):
         return self.itemCount
+    
+p=PriorityQueue()
+p.push(20,1)
+p.push(10,4)
+p.push(30,2)
+p.push(50,3)
+p.push(80,6)
+p.push(90,4)
+
+while not p.is_empty():
+    print(p.pop())
