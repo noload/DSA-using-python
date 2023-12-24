@@ -75,43 +75,69 @@ class SLL:
                 return True
             slow=slow.next
             fast=fast.next.next
+
+    def partition(self,x):
+        dummy1=SLL(0)
+        dummy2=SLL(0)
+        current1=dummy1
+        current2=dummy2
+        current=self.start
+        while current is not None:
+            if current.item < x:
+                current1.next = current
+                current1=current1.next
+            else:
+                current2.next =current
+                current2=current2.next
+            current=current.next
+
+        current1.next=dummy2.next
+        current2.next = None
+        return dummy1.next
+
+
+
+#     def __iter__(self):
+#         return SLLIterator(self.start)
     
-    def reverse(self):
-        prev=None
-        current = self.start
-        temp=current.next
-        while temp:
-            
-
-
-
-    def __iter__(self):
-        return SLLIterator(self.start)
-class SLLIterator:
-    def __init__(self,start):
-        self.current=start
-    def __iter__(self):
-        return self
-    def __next__(self):
-        if not self.current:
-            raise StopIteration
-        data=self.current.item
-        self.current=self.current.next
-        return data
+# class SLLIterator:
+#     def __init__(self,start):
+#         self.current=start
+#     def __iter__(self):
+#         return self
+#     def __next__(self):
+#         if not self.current:
+#             raise StopIteration
+#         data=self.current.item
+#         self.current=self.current.next
+#         return data
     
 
 
     
 #driver Code
-# mylist=SLL()
-# mylist.insert_at_start(20)
-# mylist.insert_at_start(10)
-# mylist.insert_at_last(30)
-# mylist.insert_at_last(40)
-# # mylist.insert_after(10)
-# mylist.insert_at_last(20)
+mylist=SLL()
+mylist.insert_at_start(20)
+mylist.insert_at_start(10)
+mylist.insert_at_last(30)
+mylist.insert_at_last(40)
+mylist.insert_at_last(20)
+mylist.insert_at_start(50)
+mylist.insert_at_start(90)
+mylist.insert_at_last(80)
+mylist.insert_at_last(45)
+
+print("before partition")
+mylist.print_list()
+
+x = mylist.partition(30);
+print()
+print("After partition")
+mylist.print_list()
+
 # # mylist.insert_after(mylist.search(20),25)
 # mylist.print_list()
+
 # mylist.delete_item(30)
 # print("has cycle",mylist.hasCycle())
 # print()
